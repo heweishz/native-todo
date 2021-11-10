@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native'
+import { View, TextInput, Button, StyleSheet, Alert, Text } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
 
 const AddTodos = ({ setTodos }) => {
   const [text, setText] = useState('')
@@ -28,11 +29,14 @@ const AddTodos = ({ setTodos }) => {
         onChangeText={changeHandler}
         value={text}
       />
-      <Button
-        title='Submit'
-        color='coral'
-        onPress={() => submitHandler(text)}
-      />
+      <View style={styles.button}>
+        <Ionicons name='ios-add' size={20} color='black' />
+        <Button
+          title='Submit'
+          color='coral'
+          onPress={() => submitHandler(text)}
+        />
+      </View>
     </View>
   )
 }
@@ -45,6 +49,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#7F00FF',
   },
+  button: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  inputForm: {},
 })
 
 export default AddTodos
